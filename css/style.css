@@ -76,7 +76,17 @@ section { padding: 96px 0; }
 .uslugi__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .usluga-karta { background: var(--kolor-bialy); border-radius: 8px; padding: 36px 28px; box-shadow: var(--cien); border-top: 3px solid transparent; transition: border-color 0.2s, transform 0.2s; }
 .usluga-karta:hover { border-top-color: var(--kolor-czerwony); transform: translateY(-4px); }
-.usluga-karta__ikona { font-size: 32px; margin-bottom: 16px; }
+.usluga-karta__ikona {
+    width: 48px;
+    height: 48px;
+    color: var(--kolor-czerwony);
+    margin-bottom: 20px;
+}
+
+.usluga-karta__ikona svg {
+    width: 100%;
+    height: 100%;
+}
 .usluga-karta h3 { font-size: 18px; font-weight: 600; color: var(--kolor-ciemny); margin-bottom: 10px; }
 .usluga-karta p { font-size: 15px; color: var(--kolor-tekst-jasny); line-height: 1.65; }
 
