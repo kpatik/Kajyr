@@ -83,7 +83,7 @@ img { max-width: 100%; display: block; }
 
 /* SEKCJE */
 section { padding: 96px 0; }
-section[id] { scroll-margin-top: 90px; }
+section[id] { scroll-margin-top: 72px; }
 .o-firmie, .realizacje { background: var(--kolor-szary-tlo); }
 
 .sekcja-naglowek { text-align: center; margin-bottom: 60px; }
