@@ -42,3 +42,41 @@ function resetAutoplay() {
 
 inicjujDotki();
 resetAutoplay();
+
+// Hamburger menu
+var hamburger = document.getElementById('hamburger');
+var navMenu = document.getElementById('navMenu');
+
+hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('otwarty');
+    navMenu.classList.toggle('otwarty');
+});
+
+// Zamknij menu po kliknięciu w link
+navMenu.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+        hamburger.classList.remove('otwarty');
+        navMenu.classList.remove('otwarty');
+    });
+});
+
+// Scroll spy — aktywny link w nawigacji
+var sekcje = document.querySelectorAll('section[id]');
+var navLinki = document.querySelectorAll('.nav__menu a');
+
+window.addEventListener('scroll', function() {
+    var scrollY = window.pageYOffset;
+    sekcje.forEach(function(sekcja) {
+        var top = sekcja.offsetTop - 100;
+        var height = sekcja.offsetHeight;
+        var id = sekcja.getAttribute('id');
+        if (scrollY >= top && scrollY < top + height) {
+            navLinki.forEach(function(link) {
+                link.classList.remove('aktywny');
+                if (link.getAttribute('href') === '#' + id) {
+                    link.classList.add('aktywny');
+                }
+            });
+        }
+    });
+});
