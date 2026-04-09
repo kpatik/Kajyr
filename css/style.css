@@ -83,14 +83,14 @@ img { max-width: 100%; display: block; }
 
 /* SEKCJE */
 section { padding: 96px 0; }
-section[id] { scroll-margin-top: 72px; }
+section[id] { scroll-margin-top: 58px; }
 .o-firmie, .realizacje { background: var(--kolor-szary-tlo); }
 
-.sekcja-naglowek { text-align: center; margin-bottom: 60px; }
-.sekcja-naglowek h2 { font-size: clamp(26px, 3.5vw, 40px); font-weight: 700; color: var(--kolor-ciemny); margin-bottom: 12px; }
-.sekcja-naglowek p { font-size: 17px; color: var(--kolor-tekst-jasny); max-width: 520px; margin: 0 auto; }
-.sekcja-etykieta { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--kolor-czerwony); margin-bottom: 16px; }
-.kreska { width: 48px; height: 3px; background: var(--kolor-czerwony); margin: 16px auto 0; border-radius: 2px; }
+.sekcja-naglowek { text-align: center; margin-bottom: 44px; }
+.sekcja-naglowek h2 { font-size: clamp(26px, 3.5vw, 40px); font-weight: 700; color: var(--kolor-ciemny); margin-bottom: 8px; }
+.sekcja-naglowek p { font-size: 16px; color: var(--kolor-tekst-jasny); max-width: 520px; margin: 0 auto; }
+.sekcja-etykieta { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--kolor-czerwony); margin-bottom: 12px; }
+.kreska { width: 48px; height: 3px; background: var(--kolor-czerwony); margin: 10px auto 14px; border-radius: 2px; }
 
 /* O FIRMIE */
 .o-firmie__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
