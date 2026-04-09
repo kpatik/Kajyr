@@ -43,6 +43,20 @@ function resetAutoplay() {
 inicjujDotki();
 resetAutoplay();
 
+// FAQ accordion
+function toggleFaq(btn) {
+    var odpowiedz = btn.nextElementSibling;
+    var isOpen = btn.classList.contains('otwarty');
+    document.querySelectorAll('.faq__pytanie.otwarty').forEach(function(b) {
+        b.classList.remove('otwarty');
+        b.nextElementSibling.classList.remove('widoczny');
+    });
+    if (!isOpen) {
+        btn.classList.add('otwarty');
+        odpowiedz.classList.add('widoczny');
+    }
+}
+
 // Hamburger menu
 var hamburger = document.getElementById('hamburger');
 var navMenu = document.getElementById('navMenu');

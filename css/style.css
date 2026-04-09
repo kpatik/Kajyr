@@ -185,8 +185,62 @@ section[id] { scroll-margin-top: 58px; }
     color: var(--kolor-czerwony);
 }
 
+/* PARTNERZY */
+.partnerzy { background: var(--kolor-bialy); padding: 40px 0; border-top: 1px solid #EAECEF; border-bottom: 1px solid #EAECEF; }
+.partnerzy__tytul { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--kolor-tekst-jasny); margin-bottom: 28px; }
+.partnerzy__grid { display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; }
+.partnerzy__logo { padding: 10px 24px; border: 1px solid #DDDFE3; border-radius: 4px; font-size: 14px; font-weight: 700; letter-spacing: 0.05em; color: #8A909A; text-transform: uppercase; transition: border-color 0.2s, color 0.2s; }
+.partnerzy__logo:hover { border-color: var(--kolor-czerwony); color: var(--kolor-ciemny); }
+
+/* DOFINANSOWANIA */
+.dofinansowania { background: var(--kolor-ciemny); color: var(--kolor-bialy); }
+.dofinansowania .sekcja-naglowek h2 { color: var(--kolor-bialy); }
+.dofinansowania .sekcja-naglowek p { color: rgba(255,255,255,0.6); }
+.dofinansowania__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
+.dofinansowania__karta { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 32px 28px; transition: border-color 0.2s; }
+.dofinansowania__karta:hover { border-color: var(--kolor-czerwony); }
+.dofinansowania__kwota { font-size: 28px; font-weight: 700; color: var(--kolor-czerwony); margin-bottom: 8px; }
+.dofinansowania__karta h3 { font-size: 18px; font-weight: 600; color: var(--kolor-bialy); margin-bottom: 12px; }
+.dofinansowania__karta p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 16px; }
+.dofinansowania__lista { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+.dofinansowania__lista li { font-size: 13px; color: rgba(255,255,255,0.65); padding-left: 16px; position: relative; }
+.dofinansowania__lista li::before { content: '—'; position: absolute; left: 0; color: var(--kolor-czerwony); }
+.dofinansowania__link { font-size: 13px; font-weight: 600; color: var(--kolor-czerwony); text-decoration: none; letter-spacing: 0.02em; }
+.dofinansowania__link:hover { text-decoration: underline; }
+.dofinansowania__cta { text-align: center; padding: 40px; background: rgba(196,26,26,0.1); border: 1px solid rgba(196,26,26,0.25); border-radius: 8px; }
+.dofinansowania__cta p { font-size: 16px; color: rgba(255,255,255,0.75); margin-bottom: 20px; }
+
+/* OPINIE */
+.opinie { background: var(--kolor-szary-tlo); }
+.opinie__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px; }
+.opinia__karta { background: var(--kolor-bialy); border-radius: 8px; padding: 32px 28px; box-shadow: var(--cien); }
+.opinia__gwiazdki { color: #F59E0B; font-size: 18px; letter-spacing: 2px; margin-bottom: 16px; }
+.opinia__tekst { font-size: 15px; color: var(--kolor-tekst); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+.opinia__autor strong { display: block; font-size: 14px; color: var(--kolor-ciemny); }
+.opinia__autor span { font-size: 13px; color: var(--kolor-tekst-jasny); }
+.opinie__oferteo { text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.opinie__oferteo p { font-size: 14px; color: var(--kolor-tekst-jasny); }
+.opinie__oferteo-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--kolor-czerwony); text-decoration: none; padding: 8px 18px; border: 1px solid var(--kolor-czerwony); border-radius: 4px; transition: all 0.2s; }
+.opinie__oferteo-link:hover { background: var(--kolor-czerwony); color: white; }
+
+/* FAQ */
+.faq { background: var(--kolor-bialy); }
+.faq__lista { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 4px; }
+.faq__pozycja { border-bottom: 1px solid #EAECEF; }
+.faq__pytanie { width: 100%; background: none; border: none; text-align: left; padding: 20px 0; font-size: 16px; font-weight: 600; color: var(--kolor-ciemny); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: var(--czcionka); }
+.faq__pytanie:hover { color: var(--kolor-czerwony); }
+.faq__ikona { font-size: 22px; font-weight: 400; color: var(--kolor-czerwony); flex-shrink: 0; transition: transform 0.2s; line-height: 1; }
+.faq__pytanie.otwarty .faq__ikona { transform: rotate(45deg); }
+.faq__odpowiedz { display: none; padding-bottom: 20px; }
+.faq__odpowiedz.widoczny { display: block; }
+.faq__odpowiedz p { font-size: 15px; color: var(--kolor-tekst-jasny); line-height: 1.75; }
+
 /* STOPKA */
-.footer { background: var(--kolor-ciemny); color: rgba(255,255,255,0.5); padding: 32px 0; text-align: center; font-size: 14px; }
+.footer { background: var(--kolor-ciemny); color: rgba(255,255,255,0.5); padding: 32px 0; font-size: 14px; }
+.footer__grid { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.footer__dane { color: rgba(255,255,255,0.35); }
+.footer__oferteo { color: rgba(255,255,255,0.6); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+.footer__oferteo:hover { color: var(--kolor-czerwony); }
 /* ============================================
    KONTAKT
    ============================================ */
@@ -282,6 +336,14 @@ section[id] { scroll-margin-top: 58px; }
     .hero__stats-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 32px;
+    }
+
+    .dofinansowania__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .opinie__grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -397,5 +459,18 @@ section[id] { scroll-margin-top: 58px; }
 
     .sekcja-naglowek {
         margin-bottom: 40px;
+    }
+
+    .dofinansowania__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .opinie__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer__grid {
+        flex-direction: column;
+        text-align: center;
     }
 }
