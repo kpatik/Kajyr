@@ -21,13 +21,18 @@
         "addressLocality": "Ruda",
         "addressCountry": "PL"
       },
-      "telephone": "+48000000000",
+      "telephone": "+48725220401",
       "email": "kajyrinstal@gmail.com",
       "openingHours": "Mo-Fr 08:00-17:00"
     }
     </script>
     <link rel="stylesheet" href="css/style.css">
     <style>
+        /* NAV — dopasowanie do 6 linków */
+        .nav__menu { gap: 24px; }
+        .nav__menu a { font-size: 13px; letter-spacing: 0.03em; }
+        .nav__cta { margin-left: 16px; padding: 10px 18px; font-size: 13px; white-space: nowrap; }
+
         /* MARKI */
         .marki { background: var(--kolor-bialy); padding: 40px 0; border-top: 1px solid #EAECEF; border-bottom: 1px solid #EAECEF; }
         .marki__tytul { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--kolor-tekst-jasny); margin-bottom: 28px; }
@@ -46,27 +51,36 @@
         .opinie--kompakt .opinia__autor span { font-size: 12px; }
         .opinie--kompakt .opinie__oferteo { margin-top: 24px; }
 
-        /* KONTAKT FORM */
-        .kontakt__form { width: 100%; display: flex; flex-direction: column; gap: 12px; }
-        .kontakt__form input,
-        .kontakt__form textarea {
-            width: 100%; padding: 12px 16px;
-            border: 1px solid #D1D5DB; border-radius: 4px;
-            font-size: 15px; font-family: var(--czcionka);
-            color: var(--kolor-tekst); background: #fff;
-            outline: none; transition: border-color 0.2s;
+
+        /* SLIDER — pojedyncze i podwójne zdjęcia */
+        .slider__solo { width: 100%; max-width: 1000px; height: 360px; object-fit: cover; border-radius: 6px; display: block; }
+        .slider__duo { display: flex; gap: 16px; width: 100%; max-width: 1000px; }
+        .slider__duo img { flex: 1; height: 320px; object-fit: cover; border-radius: 6px; min-width: 0; }
+        @media (max-width: 768px) {
+            .slider__solo { height: 220px; }
+            .slider__duo { flex-direction: column; }
+            .slider__duo img { height: 200px; }
         }
-        .kontakt__form input:focus,
-        .kontakt__form textarea:focus { border-color: var(--kolor-czerwony); }
-        .kontakt__form textarea { resize: vertical; min-height: 80px; }
-        .kontakt__form .btn { align-self: stretch; }
-        #dziekujemy { display: none; }
-        .dziekujemy__tel {
-            font-size: 26px; font-weight: 700;
-            color: var(--kolor-ciemny); text-decoration: none;
-            margin-top: 8px; display: block; transition: color 0.2s;
+
+        /* KONTAKT — 2 kolumny */
+        .faq-kontakt { background: var(--kolor-bialy); padding: 96px 0; }
+        .faq-kontakt__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+        .faq-kontakt__naglowek { margin-bottom: 32px; }
+        .faq-kontakt__naglowek h2 { font-size: clamp(22px, 2.8vw, 34px); font-weight: 700; color: var(--kolor-ciemny); margin-bottom: 8px; }
+        .faq-kontakt .kreska { margin-left: 0; }
+        .faq-kontakt__lewa p { font-size: 16px; line-height: 1.7; color: var(--kolor-tekst); margin-bottom: 32px; max-width: 420px; }
+        .faq-kontakt__prawa .kontakt__cta-box { margin-top: 0; }
+        /* Dane firmy */
+        .kontakt__dane { display: flex; flex-direction: column; }
+        .kontakt__dane-pozycja { padding: 16px 0; border-bottom: 1px solid #EAECEF; display: flex; flex-direction: column; gap: 4px; }
+        .kontakt__dane-pozycja:first-child { padding-top: 0; }
+        .kontakt__dane-pozycja:last-child { border-bottom: none; }
+        .kontakt__dane-tresc strong { font-size: 11px; font-weight: 600; color: var(--kolor-tekst-jasny); text-transform: uppercase; letter-spacing: 0.1em; }
+        .kontakt__dane-tresc a, .kontakt__dane-tresc span { font-size: 17px; font-weight: 500; color: var(--kolor-ciemny); text-decoration: none; transition: color 0.2s; }
+        .kontakt__dane-tresc a:hover { color: var(--kolor-czerwony); }
+        @media (max-width: 1024px) {
+            .faq-kontakt__grid { grid-template-columns: 1fr; gap: 48px; }
         }
-        .dziekujemy__tel:hover { color: var(--kolor-czerwony); }
 
         /* DOFINANSOWANIA — oznaczenie ważności */
         .dofinansowania__badge {
@@ -88,13 +102,14 @@
 
     <header class="nav">
         <div class="container">
-            <div class="nav__logo">
+            <a href="#" class="nav__logo" aria-label="Kajyr Instal — powrót na górę">
                 <img src="images/logo.png" alt="Kajyr Instal">
-            </div>
+            </a>
             <nav class="nav__menu" id="navMenu">
                 <a href="#o-firmie">O firmie</a>
                 <a href="#uslugi">Usługi</a>
                 <a href="#realizacje">Realizacje</a>
+                <a href="#opinie">Opinie</a>
                 <a href="#dofinansowania">Dofinansowania</a>
                 <a href="#kontakt">Kontakt</a>
             </nav>
@@ -150,8 +165,8 @@
                     <span class="sekcja-etykieta">O firmie</span>
                     <h2>Fachowość potwierdzona<br>setkami realizacji</h2>
                     <div class="kreska"></div>
-                    <p>Za Kajyr Instal stoi Ireneusz Ryjak — instalator z powołania, nie z przypadku. Każdy projekt prowadzi osobiście lub nadzoruje od pierwszej rozmowy aż po odbiór i instruktaż obsługi.</p>
-                    <p>Nie sprzedajemy gotowych pakietów. Przyjeżdżamy, oglądamy budynek i dopiero wtedy mówimy, co ma sens — technicznie i finansowo. Bo ogrzewanie na 20 lat zasługuje na przemyślaną decyzję, a nie szybką ofertę.</p>
+                    <p>Kajyr Instal to firma z południa Warszawy — instalacje grzewcze dla domów jednorodzinnych i budynków firmowych od ponad 12 lat.</p>
+                    <p>Nie sprzedajemy gotowych pakietów. Przyjeżdżamy, oglądamy budynek i dopiero wtedy mówimy, co ma sens — technicznie i finansowo.</p>
                     <ul class="o-firmie__lista">
                         <li>
                             <div class="o-firmie__lista-ikona">✓</div>
@@ -171,7 +186,7 @@
                             <div class="o-firmie__lista-ikona">✓</div>
                             <div>
                                 <strong>Serwis pogwarancyjny</strong>
-                                <span>Jesteśmy dostępni długo po zakończeniu projektu. Czas reakcji na awarię — do 48 godzin</span>
+                                <span>Odbieramy telefon i reagujemy szybko — bo brak ogrzewania zimą nie jest sprawą, która może czekać</span>
                             </div>
                         </li>
                     </ul>
@@ -265,46 +280,70 @@
         </div>
         <div class="slider">
             <div class="slider__track" id="sliderTrack">
+
+                <!-- Slajd 1 — pojedyncze zdjęcie -->
                 <div class="slider__slide">
-                    <img src="images/realizacje/foto1.jpg" alt="Realizacja 1">
+                    <img class="slider__solo" src="images/realizacje/foto1.jpg" alt="Realizacja 1">
                     <div class="slider__opis">
-                        <span class="slider__kategoria">Pompa ciepła</span>
+                        <span class="slider__kategoria">Pompy ciepła</span>
                         <h3>Lorem ipsum dolor sit amet consectetur</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
                     </div>
                 </div>
+
+                <!-- Slajd 2 — pojedyncze zdjęcie -->
                 <div class="slider__slide">
-                    <img src="images/realizacje/foto2.jpg" alt="Realizacja 2">
+                    <img class="slider__solo" src="images/realizacje/foto2.jpg" alt="Realizacja 2">
+                    <div class="slider__opis">
+                        <span class="slider__kategoria">Ogrzewanie podłogowe</span>
+                        <h3>Lorem ipsum dolor sit amet consectetur</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                    </div>
+                </div>
+
+                <!-- Slajd 3 — pojedyncze zdjęcie -->
+                <div class="slider__slide">
+                    <img class="slider__solo" src="images/realizacje/foto3.jpg" alt="Realizacja 3">
                     <div class="slider__opis">
                         <span class="slider__kategoria">Kotłownie</span>
                         <h3>Lorem ipsum dolor sit amet consectetur</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
                     </div>
                 </div>
+
+                <!-- Slajd 4 — pojedyncze zdjęcie -->
                 <div class="slider__slide">
-                    <img src="images/realizacje/foto3.jpg" alt="Realizacja 3">
+                    <img class="slider__solo" src="images/realizacje/foto4.jpg" alt="Realizacja 4">
                     <div class="slider__opis">
                         <span class="slider__kategoria">Fotowoltaika</span>
                         <h3>Lorem ipsum dolor sit amet consectetur</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
                     </div>
                 </div>
+
+                <!-- Slajd 5 — pojedyncze zdjęcie -->
                 <div class="slider__slide">
-                    <img src="images/realizacje/foto4.jpg" alt="Realizacja 4">
+                    <img class="slider__solo" src="images/realizacje/foto5.jpg" alt="Realizacja 5">
                     <div class="slider__opis">
                         <span class="slider__kategoria">Hydraulika</span>
                         <h3>Lorem ipsum dolor sit amet consectetur</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
                     </div>
                 </div>
+
+                <!-- Slajd 6 — dwa zdjęcia (foto6a + foto6b) -->
                 <div class="slider__slide">
-                    <img src="images/realizacje/foto5.jpg" alt="Realizacja 5">
+                    <div class="slider__duo">
+                        <img src="images/realizacje/foto6a.png" alt="Realizacja 6a">
+                        <img src="images/realizacje/foto6b.png" alt="Realizacja 6b">
+                    </div>
                     <div class="slider__opis">
-                        <span class="slider__kategoria">Automatyka</span>
+                        <span class="slider__kategoria">Instalacje grzewcze</span>
                         <h3>Lorem ipsum dolor sit amet consectetur</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
                     </div>
                 </div>
+
             </div>
             <button class="slider__btn slider__btn--prev" onclick="zmienSlajd(-1)">&#8592;</button>
             <button class="slider__btn slider__btn--next" onclick="zmienSlajd(1)">&#8594;</button>
@@ -323,9 +362,10 @@
             <div class="opinie__grid">
                 <div class="opinia__karta">
                     <div class="opinia__gwiazdki">★★★★★</div>
-                    <p class="opinia__tekst">„Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam."</p>
+                    <p class="opinia__tekst">„Firma zakładała w moim domu zarówno pompę ciepła jak i panele fotowoltaiczne. To, co bardzo istotne, to właściwie nic mnie nie obchodziło jeśli chodzi o wybór sprzętu czy montaż. Zaproponowali sprzęt, który spisuje się bez zarzutu. I w dodatku taniej niż u konkurencji. Wszystko z fakturą, gwarancją.
+Sprawnie zamontowali, pomogli z papierami do zakładu energetycznego. Do tego fajny kontakt i generalnie bardzo OK."</p>
                     <div class="opinia__autor">
-                        <strong>Tomasz W.</strong>
+                        <strong>Paweł J</strong>
                         <span>Piaseczno</span>
                     </div>
                 </div>
@@ -424,98 +464,56 @@
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <div class="sekcja-naglowek">
-                <span class="sekcja-etykieta">Masz pytania?</span>
-                <h2>Często zadawane pytania</h2>
-                <div class="kreska"></div>
-            </div>
-            <div class="faq__lista">
-                <div class="faq__pozycja">
-                    <button class="faq__pytanie" onclick="toggleFaq(this)">
-                        Jaki obszar obsługujecie?
-                        <span class="faq__ikona">+</span>
-                    </button>
-                    <div class="faq__odpowiedz">
-                        <p>Działamy na terenie Warszawy, Piaseczna, Pruszkowa, Otwocka oraz — od niedawna — Płocka i okolic. W przypadku większych projektów możliwy wyjazd poza te obszary — zapytaj.</p>
-                    </div>
-                </div>
-                <div class="faq__pozycja">
-                    <button class="faq__pytanie" onclick="toggleFaq(this)">
-                        Czy pomagacie w uzyskaniu dofinansowania z Czystego Powietrza?
-                        <span class="faq__ikona">+</span>
-                    </button>
-                    <div class="faq__odpowiedz">
-                        <p>Tak — pomagamy na każdym etapie: od sprawdzenia, czy spełniasz warunki, przez przygotowanie dokumentacji, aż po rozliczenie dotacji. Współpracujemy z programami Czyste Powietrze, Moje Ciepło oraz Przydomowe Magazyny Energii.</p>
-                    </div>
-                </div>
-                <div class="faq__pozycja">
-                    <button class="faq__pytanie" onclick="toggleFaq(this)">
-                        Jak długo trwa montaż pompy ciepła?
-                        <span class="faq__ikona">+</span>
-                    </button>
-                    <div class="faq__odpowiedz">
-                        <p>Standardowy montaż pompy ciepła powietrze-woda trwa 2–4 dni robocze — łącznie z instalacją hydrauliczną kotłowni i uruchomieniem. Dokładny harmonogram ustalamy po bezpłatnej wizji lokalnej. Nie zostawiamy budowy bez odbioru i instruktażu obsługi.</p>
-                    </div>
-                </div>
-                <div class="faq__pozycja">
-                    <button class="faq__pytanie" onclick="toggleFaq(this)">
-                        Czy wystawiacie faktury VAT?
-                        <span class="faq__ikona">+</span>
-                    </button>
-                    <div class="faq__odpowiedz">
-                        <p>Tak, wystawiamy faktury VAT. Współpracujemy z klientami indywidualnymi, firmami i deweloperami. NIP: 1230512164.</p>
-                    </div>
-                </div>
-                <div class="faq__pozycja">
-                    <button class="faq__pytanie" onclick="toggleFaq(this)">
-                        Ile trwa wycena projektu?
-                        <span class="faq__ikona">+</span>
-                    </button>
-                    <div class="faq__odpowiedz">
-                        <p>Wycenę przygotowujemy bezpłatnie — zazwyczaj w ciągu 24 godzin od otrzymania opisu projektu lub po wizycie na obiekcie. Żadnych ogólnych widełek — tylko konkretna oferta dopasowana do Twojego budynku.</p>
-                    </div>
-                </div>
-                <div class="faq__pozycja">
-                    <button class="faq__pytanie" onclick="toggleFaq(this)">
-                        Czy serwisujecie instalacje, które sami nie montowaliście?
-                        <span class="faq__ikona">+</span>
-                    </button>
-                    <div class="faq__odpowiedz">
-                        <p>Tak — przeglądamy, naprawiamy i modernizujemy instalacje grzewcze niezależnie od tego, kto je montował. Jeśli coś nie działa jak powinno, przyjedziemy to sprawdzić. Czas reakcji na awarie: do 48 godzin.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- KONTAKT -->
-    <section class="kontakt" id="kontakt">
+    <section class="faq-kontakt" id="kontakt">
         <div class="container">
-            <div class="sekcja-naglowek">
-                <span class="sekcja-etykieta">Napisz do nas</span>
-                <h2>Kontakt i wycena</h2>
-                <div class="kreska"></div>
-                <p>Opisz projekt — wrócimy z konkretną wyceną w ciągu 24 godzin. Bez ogólników, bez zbędnych pytań.</p>
-            </div>
-            <div class="kontakt__center">
-                <div class="kontakt__cta-box">
-                    <h3>Bezpłatna wycena</h3>
-                    <p>Napisz kilka słów o budynku i o co Ci chodzi. Numer telefonu podamy po przesłaniu — oddzwonimy i omówimy szczegóły.</p>
-                    <form id="wycenaForm" class="kontakt__form" onsubmit="pokazTelefon(event)">
-                        <input type="text" name="imie" placeholder="Imię i nazwisko" required>
-                        <input type="email" name="email" placeholder="Adres e-mail" required>
-                        <textarea name="wiadomosc" placeholder="Opisz krótko swój projekt..." rows="3" required></textarea>
-                        <button type="submit" class="btn btn--primary">Wyślij zapytanie →</button>
-                    </form>
-                    <div id="dziekujemy">
-                        <p style="font-size:17px;font-weight:600;color:var(--kolor-ciemny);margin-bottom:6px;">✓ Dziękujemy za wiadomość!</p>
-                        <p style="font-size:14px;color:var(--kolor-tekst-jasny);margin-bottom:16px;">Odezwiemy się w ciągu 24 godzin. Możesz też zadzwonić bezpośrednio:</p>
-                        <a href="tel:+48000000000" class="dziekujemy__tel">+48 000 000 000</a>
+            <div class="faq-kontakt__grid">
+
+                <!-- LEWA: CTA formularz -->
+                <div class="faq-kontakt__lewa">
+                    <div class="faq-kontakt__naglowek">
+                        <span class="sekcja-etykieta">Bezpłatna wycena</span>
+                        <h2>Wycena</h2>
+                        <div class="kreska"></div>
+                    </div>
+                    <p>Wypełnij krótki formularz — odezwiemy się z konkretną wyceną w ciągu 24 godzin. Żadnych ogólnych widełek, żadnych ukrytych kosztów.</p>
+                    <a href="https://forms.gle/PLACEHOLDER" target="_blank" rel="noopener" class="btn btn--primary" style="display:inline-flex;align-items:center;gap:8px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:18px;height:18px;flex-shrink:0;">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                        </svg>
+                        Wypełnij formularz wyceny
+                    </a>
+                </div>
+
+                <!-- PRAWA: dane firmy -->
+                <div class="faq-kontakt__prawa">
+                    <div class="faq-kontakt__naglowek">
+                        <span class="sekcja-etykieta">Dane kontaktowe</span>
+                        <h2>Kajyr Instal</h2>
+                        <div class="kreska"></div>
+                    </div>
+                    <div class="kontakt__dane">
+                        <div class="kontakt__dane-pozycja">
+                            <div class="kontakt__dane-tresc">
+                                <strong>Telefon</strong>
+                                <a href="tel:+48725220401">+48 725 220 401</a>
+                            </div>
+                        </div>
+                        <div class="kontakt__dane-pozycja">
+                            <div class="kontakt__dane-tresc">
+                                <strong>E-mail</strong>
+                                <a href="mailto:kajyrinstal@gmail.com">kajyrinstal@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="kontakt__dane-pozycja">
+                            <div class="kontakt__dane-tresc">
+                                <strong>Godziny pracy</strong>
+                                <span>Pon–Pt: 8:00–17:00</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -536,12 +534,5 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script>
-        function pokazTelefon(e) {
-            e.preventDefault();
-            document.getElementById('wycenaForm').style.display = 'none';
-            document.getElementById('dziekujemy').style.display = 'block';
-        }
-    </script>
 </body>
 </html>
