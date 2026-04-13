@@ -80,6 +80,13 @@ var navLinki = document.querySelectorAll('.nav__menu a');
 
 window.addEventListener('scroll', function() {
     var scrollY = window.pageYOffset;
+
+    // Na samej górze (hero) — żaden link nie jest aktywny
+    if (scrollY < 80) {
+        navLinki.forEach(function(link) { link.classList.remove('aktywny'); });
+        return;
+    }
+
     sekcje.forEach(function(sekcja) {
         var top = sekcja.offsetTop - 100;
         var height = sekcja.offsetHeight;
