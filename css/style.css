@@ -196,7 +196,7 @@ section[id] { scroll-margin-top: 58px; }
 .dofinansowania { background: var(--kolor-ciemny); color: var(--kolor-bialy); }
 .dofinansowania .sekcja-naglowek h2 { color: var(--kolor-bialy); }
 .dofinansowania .sekcja-naglowek p { color: rgba(255,255,255,0.6); }
-.dofinansowania__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
+.dofinansowania__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 48px; max-width: 860px; margin-left: auto; margin-right: auto; }
 .dofinansowania__karta { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 32px 28px; transition: border-color 0.2s; }
 .dofinansowania__karta:hover { border-color: var(--kolor-czerwony); }
 .dofinansowania__kwota { font-size: 28px; font-weight: 700; color: var(--kolor-czerwony); margin-bottom: 8px; }
